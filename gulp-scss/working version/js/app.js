@@ -2,8 +2,6 @@ let deck = new Deck();
 deck.shuffle();
 let playerscore = 0;
 let dealerscore = 0;
-let playermoney = 0;
-
 function initialCards() {
   //Calculate and display score//
   playerscore += deck.cards[0].score + deck.cards[2].score;
@@ -43,14 +41,21 @@ document.getElementById('hit').style.display = 'none';
   console.log(newcard.score);
   while (dealerscore < 17){
     stay();
+    if (dealerscore < playerscore) {
+      document.getElementById('stay').style.display = 'none';
+      alert('You Win');
+    } else if (dealerscore === playerscore) {
+      document.getElementById('stay').style.display = 'none';
+      alert('Draw')
+    } else if (dealerscore > 21){
+      document.getElementById('stay').style.display = 'none';
+      alert('You Win')
+    } else {
+      document.getElementById('stay').style.display = 'none';
+      alert('You Lose')
+    }
+    
   }
-  
- }
-
- function winorlosedisplay(){
-  document.getElementById('hit').style.display = 'none';
-  document.getElementById('stay').style.display = 'none';
-  document.getElementById('gameover').style.display = 'block';
  }
 
 
@@ -63,33 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('hit').addEventListener('click', () => {
     hit();
     if (playerscore > 21){
-      winorlosedisplay();
-      document.getElementById('winorlose').innerHTML += '<h1>Your A Looser !</h1> ';     
+      document.getElementById('hit').style.display = 'none';
+      alert('game over');
     }
   });
   document.getElementById('stay').addEventListener('click', () => {
     stay();
-    if (dealerscore < playerscore) {
-      winorlosedisplay();
-      document.getElementById('winorlose').innerHTML += '<h1>You Win.</h1> ';
-      document.getElementById('pyro').innerHTML += `<div class="before"></div>
-      <div class="after"></div>`;
-    } else if (dealerscore === playerscore) {
-      winorlosedisplay();
-      document.getElementById('winorlose').innerHTML += '<h1>Draw.</h1> ';
-    } else if (dealerscore > 21){
-      winorlosedisplay();
-      document.getElementById('winorlose').innerHTML += '<h1>You Win.</h1> ';
-      document.getElementById('pyro').innerHTML += `<div class="before"></div>
-      <div class="after"></div>`;
-    } else {
-     winorlosedisplay();
-      document.getElementById('winorlose').innerHTML += '<h1>Your A Looser !</h1> ';
-    }
+    
   });
-
-  let reset_btn = document.getElementById('reset_btn');
-  reset_btn.addEventListener('click', () => {
-  location.reload();
-  });
+  
 });

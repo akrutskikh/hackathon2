@@ -18,8 +18,8 @@ class Card {
     cardsplayer.innerHTML += `<div class="card face-${this.rank}-of-${this.suit}"></div>`;
   }
   dealerDiv() {
-    let cardsdealer = document.getElementById('cardsdealer');
-    cardsdealer.innerHTML += `<div class="card face-${this.rank}-of-${this.suit}"></div>`;
+    let cardsplayer = document.getElementById('cardsdealer');
+    cardsplayer.innerHTML += `<div class="card face-${this.rank}-of-${this.suit}"></div>`;
   }
   
 

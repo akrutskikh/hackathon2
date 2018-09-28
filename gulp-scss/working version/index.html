@@ -8,9 +8,6 @@
   <title>BlackJack</title>
 </head>
 <body>
-    <div class="pyro" id="pyro">
-        
-    </div>
   <div id="dealer-hand" class="hand">
     <div id ="scoredealer" class="score">Score: ?</div>
     <div class="cards" id="cardsdealer">
@@ -19,32 +16,18 @@
     </div>
   </div>
   
-  <div class="table">
-    <div class="gameover" id="gameover">
-      GAME OVER
-      <div class="winorlose" id="winorlose"></div>
-      <button class="js-hit" id="reset_btn">RESET</button>
-    </div>
-  </div>
+  <div class="table"></div>
 
   <div id="player-hand" class="hand">
     <div class="cards" id="cardsplayer">
       
     </div>
     <div id="scoreplayer" class="score">Score: 0</div>
-
-    <div class="betting">
-      <div class="money" id="money"> Money: $500</div> <input type="text" id="moneyinput"> <button id="bet">BET</button>
-    </div>
-
     <div class="hand-controls">
       <button class="js-hit" id="hit">HIT</button>
       <button class="js-stand" id="stay">STAND</button>
     </div>
   </div>
-  
-
- 
 
   <script src="/js/card.js"></script>
   <script src="/js/deck.js"></script>
